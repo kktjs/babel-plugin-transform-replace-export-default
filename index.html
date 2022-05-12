@@ -54,6 +54,10 @@
   
   <markdown-style>
     
+<p><a href="https://npmjs.org/package/babel-plugin-transform-replace-export-default"><img src="https://img.shields.io/npm/v/babel-plugin-transform-replace-export-default.svg?style=flat" alt="NPM version"></a>
+<a href="https://github.com/kktjs/babel-plugin-transform-replace-export-default/actions"><img src="https://github.com/kktjs/babel-plugin-transform-replace-export-default/workflows/Build%20and%20Test/badge.svg" alt="Build and Test"></a>
+<a href="https://kktjs.github.io/babel-plugin-transform-replace-export-default/lcov-report"><img src="https://kktjs.github.io/babel-plugin-transform-replace-export-default/badges.svg" alt="Coverage Status"></a>
+<a href="https://npmjs.org/package/babel-plugin-transform-replace-export-default"><img src="https://img.shields.io/npm/dm/babel-plugin-transform-replace-export-default.svg?style=flat" alt="Downloadss"></a></p>
 <p>Replace <code>export default</code> with <code>return</code>, or just remove <code>export default</code>.</p>
 <h2 id="usage"><a aria-hidden="true" tabindex="-1" href="#usage" class="anchor"><span class="icon icon-link"></span></a>Usage</h2>
 <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1"><span class="token function">npm</span> <span class="token function">install</span> babel-plugin-transform-replace-export-default --save-dev
@@ -308,6 +312,36 @@ const demo = 0;
 </span></span></span></code><input type="hidden" value="const demo = 0;
 - export default demo;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="programmatic-usage"><a aria-hidden="true" tabindex="-1" href="#programmatic-usage" class="anchor"><span class="icon icon-link"></span></a>Programmatic Usage</h2>
+<pre class="language-js"><code class="language-js code-highlight"><span class="code-line line-number" line="1"><span class="token keyword module">import</span> <span class="token imports">plugin</span> <span class="token keyword module">from</span> <span class="token string">'babel-plugin-transform-replace-export-default'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> transformSync <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'@babel/core'</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="3"> 
+</span><span class="code-line line-number" line="4"><span class="token keyword">function</span> <span class="token function">replace</span><span class="token punctuation">(</span><span class="token parameter">code</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="5">  <span class="token keyword control-flow">return</span> <span class="token function">transformSync</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="6">    <span class="token literal-property property">babelrc</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="7">    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+</span><span class="code-line line-number" line="8">      <span class="token punctuation">[</span>plugin<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex"><span class="token special-escape escape">\.</span><span class="token group punctuation">(</span>less<span class="token alternation keyword">|</span>css<span class="token group punctuation">)</span><span class="token anchor function">$</span></span><span class="token regex-delimiter">/</span></span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="9">    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="10">  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">code</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="11"><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="12"> 
+</span><span class="code-line line-number" line="13"><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"export default function demo() {}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14"><span class="token comment">//=> "function demo() {}"</span>
+</span></code><input type="hidden" value="import plugin from &#x27;babel-plugin-transform-replace-export-default&#x27;;
+import { transformSync } from &#x27;@babel/core&#x27;;
+ 
+function replace(code) {
+  return transformSync(code, {
+    babelrc: false,
+    plugins: [
+      [plugin, { test: /\.(less|css)$/ }]
+    ],
+  }).code;
+}
+ 
+replace(&#x22;export default function demo() {}&#x22;);
+//=> &#x22;function demo() {}&#x22;
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="related"><a aria-hidden="true" tabindex="-1" href="#related" class="anchor"><span class="icon icon-link"></span></a>Related</h2>
 <ul>
 <li><a href="https://github.com/kktjs/markdown-react-code-preview-loader">markdown-react-code-preview-loader</a></li>
@@ -406,6 +440,11 @@ footer: |
               </li>
             
           </ol>
+        
+      </li>
+    
+      <li>
+        <a href="#programmatic-usage" class="tocs-link">Programmatic Usage</a>
         
       </li>
     
