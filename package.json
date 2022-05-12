@@ -17,6 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/kktjs/babel-plugin-transform-replace-export-default.git"
   },
+  "files": [
+    "lib",
+    "src"
+  ],
   "keywords": [
     "babel",
     "babel-plugin-transform",
