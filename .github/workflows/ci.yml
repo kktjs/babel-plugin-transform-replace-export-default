@@ -16,6 +16,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run doc
+      - run: npm run coverage
       - run: cp -rp coverage dist
       
       - name: Generate Contributors Images
