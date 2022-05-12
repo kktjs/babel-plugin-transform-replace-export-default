@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-replace-export-default",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Replace `export default` with `return`, or just remove `export default`.",
   "homepage": "https://kktjs.github.io/babel-plugin-transform-replace-export-default",
   "typings": "./lib/index.d.ts",
