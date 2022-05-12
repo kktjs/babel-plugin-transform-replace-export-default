@@ -246,7 +246,9 @@ function replace(code) {
   return transformSync(code, {
     babelrc: false,
     plugins: [
-      [plugin, { test: /\.(less|css)$/ }]
+      [plugin, {
+        removeExportDefault: true
+      }]
     ],
   }).code;
 }
