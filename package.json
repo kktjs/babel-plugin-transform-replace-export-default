@@ -1,0 +1,33 @@
+{
+  "name": "babel-plugin-transform-replace-export-default",
+  "version": "1.0.0",
+  "description": "Replace `export default` with `return`, or just remove `export default`.",
+  "typings": "./lib/index.d.ts",
+  "main": "./lib/index.js",
+  "scripts": {
+    "watch": "tsbb watch --disable-babel",
+    "build": "tsbb build --disable-babel",
+    "test": "tsbb test",
+    "coverage": "npm run build && tsbb test --coverage --bail"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kktjs/babel-plugin-transform-replace-export-default.git"
+  },
+  "keywords": [
+    "babel",
+    "babel-plugin-transform",
+    "babel-plugin"
+  ],
+  "author": "jaywcjlove",
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/core": "^7.0.0-0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "idoc": "^1.18.1",
+    "tsbb": "^3.7.2"
+  }
+}
