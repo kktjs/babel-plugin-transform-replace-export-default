@@ -3,6 +3,11 @@ babel-plugin-transform-replace-export-default
 ===
 <!--idoc:ignore:end-->
 
+[![NPM version](https://img.shields.io/npm/v/babel-plugin-transform-replace-export-default.svg?style=flat)](https://npmjs.org/package/babel-plugin-transform-replace-export-default)
+[![Build and Test](https://github.com/kktjs/babel-plugin-transform-replace-export-default/workflows/Build%20and%20Test/badge.svg)](https://github.com/kktjs/babel-plugin-transform-replace-export-default/actions)
+[![Coverage Status](https://kktjs.github.io/babel-plugin-transform-replace-export-default/badges.svg)](https://kktjs.github.io/babel-plugin-transform-replace-export-default/lcov-report)
+[![Downloadss](https://img.shields.io/npm/dm/babel-plugin-transform-replace-export-default.svg?style=flat)](https://npmjs.org/package/babel-plugin-transform-replace-export-default)
+
 Replace `export default` with `return`, or just remove `export default`.
 
 ## Usage
@@ -228,6 +233,26 @@ Output Result
 ```diff
 const demo = 0;
 - export default demo;
+```
+
+
+## Programmatic Usage
+
+```js
+import plugin from 'babel-plugin-transform-replace-export-default';
+import { transformSync } from '@babel/core';
+ 
+function replace(code) {
+  return transformSync(code, {
+    babelrc: false,
+    plugins: [
+      [plugin, { test: /\.(less|css)$/ }]
+    ],
+  }).code;
+}
+ 
+replace("export default function demo() {}");
+//=> "function demo() {}"
 ```
 
 ## Related
