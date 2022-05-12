@@ -8,7 +8,9 @@
     "watch": "tsbb watch --disable-babel",
     "build": "tsbb build --disable-babel",
     "test": "tsbb test",
-    "coverage": "npm run build && tsbb test --coverage --bail"
+    "coverage": "npm run build && tsbb test --coverage --bail",
+    "start": "idoc --watch",
+    "doc": "idoc"
   },
   "repository": {
     "type": "git",

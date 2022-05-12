@@ -1,6 +1,7 @@
+<!--idoc:ignore:start-->
 babel-plugin-transform-replace-export-default
 ===
-<!--rehype:style=display: flex; height: 230px; align-items: center; justify-content: center; font-size: 38px;-->
+<!--idoc:ignore:end-->
 
 Replace `export default` with `return`, or just remove `export default`.
 
@@ -42,7 +43,7 @@ Or
 const demo = 0;
 export default demo;
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 const demo = 0;
 return demo;
 ```
@@ -62,7 +63,7 @@ const demo = 0;
 function demo() {};
 export default demo;
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 function demo() {};
 return demo;
 ```
@@ -82,7 +83,7 @@ function demo() {};
 class demo { constructor() { } };
 export default demo;
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 class demo { constructor() { } };
 return demo;
 ```
@@ -101,7 +102,7 @@ class demo { constructor() { } };
 // Input Code
 export default class demo { constructor() { } };
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 return class demo { constructor() { } };
 ```
 
@@ -118,7 +119,7 @@ Output Result
 // Input Code
 export default class demo { constructor() { } };
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 return class demo { constructor() { } };
 ```
 
@@ -147,7 +148,7 @@ Output Result
 // Input Code
 export default class demo {}
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 class demo {}
 ```
 
@@ -164,7 +165,7 @@ Output Result
 // Input Code
 export default function demo() {}
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 function demo() {}
 ```
 
@@ -182,7 +183,7 @@ Output Result
 class demo {}
 export default demo;
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 class demo {}
 ```
 
@@ -200,7 +201,7 @@ class demo {}
 function demo() {}
 export default demo;
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 function demo() {}
 ```
 
@@ -218,7 +219,7 @@ function demo() {}
 const demo = 0;
 export default demo;
 
-// Output   ↓ ↓ ↓ ↓ ↓ ↓
+// 👇👇👇 Output   ↓ ↓ ↓ ↓ ↓ ↓
 const demo = 0;
 ```
 
@@ -233,6 +234,16 @@ const demo = 0;
 
 - [markdown-react-code-preview-loader](https://github.com/kktjs/markdown-react-code-preview-loader)
 - [babel-plugin-transform-remove-imports](https://github.com/uiwjs/babel-plugin-transform-remove-imports)
+
+## Contributors
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/kktjs/babel-plugin-transform-replace-export-default/graphs/contributors">
+  <img src="https://kktjs.github.io/babel-plugin-transform-replace-export-default/CONTRIBUTORS.svg" />
+</a>
+
+Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
 
 ## License
 
