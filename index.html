@@ -320,13 +320,15 @@ const demo = 0;
 </span><span class="code-line line-number" line="5">  <span class="token keyword control-flow">return</span> <span class="token function">transformSync</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> <span class="token punctuation">{</span>
 </span><span class="code-line line-number" line="6">    <span class="token literal-property property">babelrc</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
 </span><span class="code-line line-number" line="7">    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-</span><span class="code-line line-number" line="8">      <span class="token punctuation">[</span>plugin<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex"><span class="token special-escape escape">\.</span><span class="token group punctuation">(</span>less<span class="token alternation keyword">|</span>css<span class="token group punctuation">)</span><span class="token anchor function">$</span></span><span class="token regex-delimiter">/</span></span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
-</span><span class="code-line line-number" line="9">    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-</span><span class="code-line line-number" line="10">  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">code</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="11"><span class="token punctuation">}</span>
-</span><span class="code-line line-number" line="12"> 
-</span><span class="code-line line-number" line="13"><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"export default function demo() {}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="14"><span class="token comment">//=> "function demo() {}"</span>
+</span><span class="code-line line-number" line="8">      <span class="token punctuation">[</span>plugin<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="9">        <span class="token literal-property property">removeExportDefault</span><span class="token operator">:</span> <span class="token boolean">true</span>
+</span><span class="code-line line-number" line="10">      <span class="token punctuation">}</span><span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="11">    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="12">  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">code</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="13"><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="14"> 
+</span><span class="code-line line-number" line="15"><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"export default function demo() {}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="16"><span class="token comment">//=> "function demo() {}"</span>
 </span></code><input type="hidden" value="import plugin from &#x27;babel-plugin-transform-replace-export-default&#x27;;
 import { transformSync } from &#x27;@babel/core&#x27;;
  
@@ -334,7 +336,9 @@ function replace(code) {
   return transformSync(code, {
     babelrc: false,
     plugins: [
-      [plugin, { test: /\.(less|css)$/ }]
+      [plugin, {
+        removeExportDefault: true
+      }]
     ],
   }).code;
 }
