@@ -35,6 +35,6 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "idoc": "^1.18.1",
-    "tsbb": "^3.7.2"
+    "tsbb": "^4.0.0"
   }
 }
